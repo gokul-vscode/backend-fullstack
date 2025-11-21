@@ -18,19 +18,24 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 import dj_database_url
-
 load_dotenv()
+
+
+
+ALLOWED_HOSTS = ["*"]
+DATABASES = {
+ "default": dj_database_url.config(
+default=os.getenv("DATABASE_URL"),
+conn_max_age=600,
+ssl_require=True  # Render PostgreSQL requires SSL
+   	 )
+}
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = ["*"]
 
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         default=os.getenv("DATABASE_URL"),
-#         conn_max_age=600,
-#     )
-# }
+
 from dotenv import load_dotenv
 load_dotenv()
 # Quick-start development settings - unsuitable for production
@@ -115,13 +120,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Database
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+
 # Password validation
 ...
 
