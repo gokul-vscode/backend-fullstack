@@ -43,6 +43,13 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = ["*"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://sweet-nougat-06c63e.netlify.app",
+]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['https://sweet-nougat-06c63e.netlify.app']
 
 ROOT_URLCONF = "backend.urls"
 
@@ -81,10 +88,15 @@ else:
 
 # MEDIA
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = 'https://backend-fullstack-5.onrender.com/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # STATIC
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+WHITENOISE_USE_FINDERS = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
