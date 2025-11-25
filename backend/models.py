@@ -5,7 +5,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=100)
     price = models.IntegerField()
     description = models.TextField(blank=True)
-    image = models.URLField(max_length=500, blank=True)
+    image = models.URLField(max_length=500, upload_to='products/',blank=True)
 
     def __str__(self):
         return self.title

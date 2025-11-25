@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: backend-fullstack
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn backend.wsgi:application"
+    staticPublishPath: media

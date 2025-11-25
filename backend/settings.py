@@ -9,7 +9,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-secret")
 DEBUG = os.getenv("DEBUG", "True") == "True"
+if DEBUG:
+    MEDIA_URL = "/media/"
+else:
+    MEDIA_URL = "https://backend-fullstack-5.onrender.com/media/"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
@@ -87,9 +92,7 @@ else:
     }
 
 # MEDIA
-MEDIA_URL = "/media/"
-# MEDIA_ROOT = BASE_DIR / "media"
-MEDIA_URL = 'https://backend-fullstack-5.onrender.com/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 

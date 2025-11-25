@@ -4,7 +4,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 
 class ProductSerializer(serializers.ModelSerializer):
-    image = serializers.SerializerMethodField()
+    image = serializers.ImageField(use_url=True)  # ✅ ensures full URL
 
     class Meta:
         model = Product
