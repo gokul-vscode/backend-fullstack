@@ -12,7 +12,7 @@ from .serializers import ProductSerializer
 @api_view(['GET'])
 def getProducts(request):
     products = Product.objects.all()
-    serializer = ProductSerializer(products, many=True, context={'request': request})
+    serializer = ProductSerializer(products, many=True, context={"request": request})
     return Response(serializer.data)
 
 

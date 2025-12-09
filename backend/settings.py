@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 import dj_database_url
+from pathlib import Path
 
 load_dotenv()
 
@@ -32,6 +33,11 @@ INSTALLED_APPS = [
     'cloudinary_storage',
 ]
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'df8laxasq',
+    'API_KEY': '7362783726376',
+    'API_SECRET': 'JHjhshd8723jhds87dhsd',
+}
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -103,6 +109,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # STATIC
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = []
+
 
 WHITENOISE_USE_FINDERS = True
 
